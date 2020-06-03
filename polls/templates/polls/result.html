@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> {{ question.question_text }} 투표 결과 </h1>
+
+<ul>
+    {% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} - {{ choice.votes }} 표{{ choice.votes|pluralize}}</li>
+    {% endfor %}
+</ul>
+
+<div>
+    <a href="{% url 'polls:index' %}"> <input type="button" class="btn btn-info" value="돌아가기"> </a>
+</div>
+</body>
+</html>

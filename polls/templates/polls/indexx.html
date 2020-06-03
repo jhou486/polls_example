@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% if person_list %}
+<html>
+<head>
+<title>책과 영화 리뷰 게시판</title>
+<style>
+    ul {
+    background : skyblue;
+    padding : 10px 10px 10px 50px;
+    list-style-type : none;
+    }
+
+    ul li {
+    background : white;
+    margin-bottom : 5px;
+    }
+
+    #round { border-radius:50px; }
+    body {
+	margin-top : 30px;
+	margin-left : 500px;
+	margin-right : 500px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h3><div style="background-color:#F6CECE; padding:5px;" id="round" > 책과 영화 리뷰 게시판 </div></h3>  <hr> <br>
+        각 리뷰 게시판을 클릭하여 세부 내용을 확인해보세요. <br>
+    </header>
+
+    <ul>
+        {% for person in person_list %}
+            <li><a href="/dj/person-test/{{ person.id }}/">{{ person.text }}</a></li>
+        {% endfor %}
+    </ul>
+
+    </div>
+                <pre>
+
+                 <div>
+                                <a href="/"> <input type="button" class="btn btn-info" value="돌아가기"></a></button> <a href="/form-test"> <input type="button" class="btn btn-info" value="게시판 작성하기"></a></button>
+                 </div>
+                </pre>
+    </div>
+</body>
+</html>
+
+{% endif %}
+

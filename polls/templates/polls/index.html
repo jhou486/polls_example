@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title> 모여봐요! 강아지 숲 </title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+
+
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <div class="navbar-brand js-scroll-trigger" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">이달의 강아지</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">애견정보</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">책과 영화</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">동영상</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead 초기화면 -->
+        <header class="masthead">
+            <div class="text">
+                <div class="col-12">
+                    {{ error }}
+                </div>
+                <pre>
+                                    <input type="submit" value="로그인" onclick="location.href='login'" >  <input type="submit" value="회원가입" onclick="location.href='register'"> </pre>
+        </header>
+        <!-- Services 이달의 강아지 투표-->
+        <section class="page-section" id="services">
+            <div class="container">
+			<form>
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">이달의 강아지</h2>
+                    <h3 class="section-subheading text-muted">5월의 강아지를 골라주세요!</h3>
+                </div>
+
+                {% if error_message %}
+                <p><strong>{{ error_message }}</strong></p>
+                {% endif %}
+
+                <div class="row text-center">
+                    <form>
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <img src={% static "media/jang.png" %} width= "300" height="300" alt="짱절미">
+                            <h4 class="my-3">&nbsp;짱절미(@zzangieolmi)</h4>
+                            <p class="text-muted">강물에 떠내려가다 극적으로 구조돼 과수원집 막내딸로 사랑을 한몸에 받은 '귀요미 원탑'</p>
+                        </div>
+                        <div class="col-md-4">
+                            <img src={% static "media/juck.jpg" %} width= "300" height="300" alt="개죽이">
+                            <h4 class="my-3">개죽이(@nills)</h4>
+                            <p class="text-muted">대나무에 매달린 그 유명한 강아지</p>
+                        </div>
+                        <div class="col-md-4">
+                            <img src={% static "media/darly.jpg" %} width= "300" height="300" alt="달리">
+                            <h4 class="my-3">달리(@run_darly)</h4>
+                            <p class="text-muted">몸이 불편해도 언제나 씩씩하고 힘차게 달리라고 붙여진 이름 달리. 똥꼬발랄한 애교쟁이</p>
+                        </div>
+                    </div>
+			    </form>
+                    {% if latest_question_list %}
+                        {% for question in latest_question_list %}
+                    <pre>
+
+                    <div>
+                                                             <a href="/polls/{{ question.id }}/"> <input type="button" class="btn btn-info" value="이달의 강아지 투표하기"></a></button>
+                        {% endfor %}
+                    {% else %}
+                        no
+                    {% endif %}
+                    </div>
+                    </pre>
+                </div>
+
+
+        <!-- Portfolio Grid 사전-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase"> 애견정보 </h2>
+                    <h3 class="section-subheading text-muted"> 사진을 클릭시 해당 애견정보로 이동합니다. </h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a href="https://terms.naver.com/entry.nhn?docId=989120&cid=46677&categoryId=46677" >
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></div>
+                                </div>
+                                <img class="img-fluid" src={% static "media/g1.jpg" %} alt="스피츠"
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading" >스피츠</div>
+                                <br><span style="color:gray">독일어로 '뾰족하다'라는 의미를 가졌으며 성질은 온순하다.</span></br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a href="https://terms.naver.com/entry.nhn?docId=989036&cid=46677&categoryId=46677"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></div>
+                                </div>
+                                <img class="img-fluid" src={% static "media/g2.jpg" %} alt="닥스훈트"
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">닥스훈트</div>
+                                <br><span style="color:gray">독일어로 '오소리 사냥'이라는 뜻이 담겨져 있으며 굴에 숨은 동물을 추적하는데 활약했던 특징이 외형적으로 나타난다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a href="https://terms.naver.com/entry.nhn?docId=989109&cid=46677&categoryId=46677"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></div>
+                                </div>
+                               <img class="img-fluid" src={% static "media/g3.png" %} alt="웰시코기"
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">웰시코기</div>
+                                <br><span style="color:gray">영리하고 성격이 온순한 품종이다.목양견으로 소를 몰 때 차이지 않기 위해 다리가 짧다고 한다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <div class="portfolio-item">
+                            <a href="https://terms.naver.com/entry.nhn?docId=989093&cid=46677&categoryId=46677"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></div>
+                                </div>
+                                <img class="img-fluid" src={% static "media/g4.jpg" %} alt="코카스파니엘"
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">코카스파니엘</div>
+                                <br><span style="color:gray">긴 털과 위치가 낮은 늘어진 귀가 특징이다. 태평하고 사람을 잘 따르고 활발하다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <div class="portfolio-item">
+                            <a href="https://terms.naver.com/entry.nhn?docId=1168142&cid=40942&categoryId=32624"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></div>
+                                </div>
+                                <img class="img-fluid" src={% static "media/g5.jpg" %} alt="허스키"
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">허스키</div>
+                                <br><span style="color:gray">움직임이 재빠르고 가벼운 중형견으로 주로 사역견으로 활용된다. 총명하고 열의가 넘치는 성격을 가지고 있다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <a href="https://terms.naver.com/entry.nhn?docId=989134&cid=46677&categoryId=46677"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></div>
+                                </div>
+                                <img class="img-fluid" src={% static "media/g6.jpg" %} alt="콜리"
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">콜리</div>
+                                <br><span style="color:gray">털이 길어 자주 빗질을 해 주어야 한다. 목양견으로 명성이 높으며 책임감이 강하고 우호적이다.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About 책과 영화 -->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">책과 영화</h2>
+                    <h3 class="section-subheading text-muted">강아지가 나온 책과 영화 추천</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="rounded-circle" src={% static "media/b1.jpg" %} alt="달려라달리" />
+                            <h4>달려라달리</h4>
+                            <p class="text-muted"><span style="color:skyblue">달리의 가슴 따뜻한 성장 에세이</span><br>우연한 사고로 다리를 잃은 채 주인에게 버려진 후, 운명처럼 달숙언니를 만나 몸은 불편해도 언제나 씩씩하고 힘차게 달리라고 붙여진 이름 달리. 소심하고 겁 많던 강아지가 새로운 주인을 만나 진정한 가족이 되어가는 과정을 담았다.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="rounded-circle" src={% static "media/b2.jpg" %} alt="베일리어게인" />
+                            <h4>베일리 어게인</h4>
+                            <p class="text-muted"><span style="color:orange">견생 4회차 "다시 태어나도 내 친구가 되어줘"</span><br>귀여운 소년 ‘이든’의 단짝 반려견 ‘베일리’는 행복한 생을 마감한다. 하지만 눈을 떠보니 다시 시작된 견생. 경찰견 '엘리'에서 소울메이트 '티노'까지! '베일리'는 마침내 자신이 돌아온 진짜 이유를 깨닫고 어딘가로 달려가기 시작한다.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="rounded-circle" src={% static "media/b3.jpg" %} alt="당신은 개를 키우면 안 된다" />
+                            <h4>당신은 개를 키우면 안 된다</h4>
+                            <p class="text-muted"><span style="color:pink">혼내지 않아도, 혼나지 않아도 되는 반려견 교육</span><br>상품처럼 진열되어 팔리고 자신의 감정을 솔직하게 드러내면 문제견이 되는 현실에서 이제 강아지를 섬세한 하나의 생명체로 마주하게 하는 도서이다. 반려견을 키우면서도 늘 마음 한구석이 미안한 이들, 반려견을 키우고 싶은데 어떻게 해야 할지 모르는 이들과 함께 하고 싶은 마음을 담았다.</p>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+
+                 <div>
+                                                         <a href="/person-test"> <input type="button" class="btn btn-info" value="리뷰 게시판 바로가기"></a></button>
+                 </div>
+                </pre>
+            </div>
+        </section>
+        <!-- Team 동영상-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">동영상</h2>
+                    <h3 class="section-subheading text-muted">세상에 나쁜 개는 없다 & TV동물농장</h3>
+					<article>
+						  <center><strong>미스터리 견 폴리, 네 눈엔 뭐가 보이니?</strong></center>
+						  <center><iframe width="560" height="315" src="https://www.youtube.com/embed/cQuc9-mn1_k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe></center>
+						  <br/>
+						  <center><strong>상상 초월 특별한 천재견 호야</strong></center>
+						  <center><iframe width="560" height="315" src="https://www.youtube.com/embed/ZUEh2THzQcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe> </center>
+					</article>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-left">201846022 IT경영학과 김지호</div>
+            </div>
+			</div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Contact form JS-->
+        <script src="assets/mail/jqBootstrapValidation.js"></script>
+        <script src="assets/mail/contact_me.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--{{ name_list }}-->
+<!--{% if latest_question_list %}-->
+<!--    <ul>-->
+<!--        {% for question in latest_question_list %}-->
+<!--            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+<!--{% else %}-->
+<!--    <p>No polls are available. </p>-->
+
+<!--{% endif %}-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--{{ name_list }}-->
+<!--{% if latest_question_list %}-->
+<!--    <ul>-->
+<!--        {% for question in latest_question_list %}-->
+<!--            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+<!--{% else %}-->
+<!--    <p>No polls are available. </p>-->
+
+<!--{% endif %}-->
+
+<!--</body>-->
+<!--</html>-->

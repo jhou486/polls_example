@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>리뷰 내용 자세히 보기</title>
+<style>
+    #round { border-radius:50px; }
+    body {
+	margin-top : 30px;
+	margin-left : 500px;
+	margin-right : 500px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h3><div style="background-color:skyblue; padding:5px;"id="round" ><div style="color:white;"> 리뷰 내용 자세히 보기</div> </div></h3>  <hr> <br>
+    </header>
+
+    글쓴이 <div style="background-color:#F6CECE; padding:5px;" id="round" > {{ person.name }}</div><br>
+    한줄 요약 리뷰 <div style="background-color:#F6CECE; padding:5px;" id="round" > {{ person.text }} </div> <br>
+<br>
+
+<div>
+    <a href="/person-test/"> <input type="button" class="btn btn-info" value="돌아가기"> </a>
+</div>
+</body>
+</html>
